@@ -30,8 +30,6 @@ abstract class BindingActivity<VB : ViewBinding>(
 
         setTheme(defaultTheme)
         setContentView(binding.root)
-
-        presenter.onStart()
     }
 
     override fun onPause() {

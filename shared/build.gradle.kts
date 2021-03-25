@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    kotlin("plugin.serialization") version "1.4.30"
 }
 
 configurations {
@@ -39,7 +40,11 @@ kotlin {
                 implementation(Dependencies.Common.Koin)
             }
         }
-        val iosMain by getting
+        val iosMain by getting {
+            dependencies {
+                implementation(Dependencies.Common.Koin)
+            }
+        }
     }
 }
 

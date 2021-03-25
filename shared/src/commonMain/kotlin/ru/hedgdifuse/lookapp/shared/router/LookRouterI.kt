@@ -1,8 +1,8 @@
-package shared.router
+package ru.hedgdifuse.lookapp.shared.router
 
 import io.ktor.client.statement.*
-import shared.model.payload.ProfileResponse
-import shared.model.response.BaseResponse
+import ru.hedgdifuse.lookapp.shared.model.payload.ProfileResponse
+import ru.hedgdifuse.lookapp.shared.model.response.BaseResponse
 
 /**
  * [LookRouterI] - interface for based on ktor router.
@@ -10,5 +10,5 @@ import shared.model.response.BaseResponse
 interface LookRouterI {
     suspend fun code(code: Int): HttpResponse
     suspend fun ping(): HttpResponse
-    suspend fun profile(): BaseResponse<ProfileResponse, Any>
+    suspend fun profile(): BaseResponse<ProfileResponse>
 }

@@ -1,22 +1,20 @@
-package shared.router.impl
+package ru.hedgdifuse.lookapp.shared.router.impl
 
-import com.russhwolf.settings.Settings
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import shared.custom.withStartUrl
-import shared.model.payload.CodePayload
-import shared.model.payload.ProfileResponse
-import shared.model.response.BaseResponse
-import shared.router.LookRouterI
+import ru.hedgdifuse.lookapp.shared.model.payload.CodePayload
+import ru.hedgdifuse.lookapp.shared.model.response.BaseResponse
+import ru.hedgdifuse.lookapp.shared.router.LookRouterI
+import ru.hedgdifuse.lookapp.shared.custom.withStartUrl
+import ru.hedgdifuse.lookapp.shared.model.payload.ProfileResponse
 
 /**
  * [LookRouter] - implementation of [LookRouterI]
  */
 class LookRouter(
-    private val client: HttpClient,
-    private val settings: Settings
+    private val client: HttpClient
 ): LookRouterI {
     override suspend fun code(code: Int) =
         client.post<HttpResponse>(withStartUrl("/code")) {
@@ -27,8 +25,5 @@ class LookRouter(
         client.get<HttpResponse>(withStartUrl("/ping"))
 
     override suspend fun profile() =
-        client.get<BaseResponse<ProfileResponse, Any>>(withStartUrl("/profile")) {
-            settings.getStringOrNull("sid")
-                ?.let { cookie("sid", it) }
-        }
+        client.get<BaseResponse<ProfileResponse>>(withStartUrl("/profile"))
 }

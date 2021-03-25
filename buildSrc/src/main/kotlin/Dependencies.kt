@@ -1,6 +1,7 @@
 import Versions.Android.app_compat_version
 import Versions.Android.core_ktx_version
 import Versions.Android.constraint_layout_version
+import Versions.Android.material_version
 
 import Versions.koin_version
 import Versions.ktor_version
@@ -23,7 +24,7 @@ object Dependencies {
         const val KotlinXSerializer = "org.jetbrains.kotlinx:kotlinx-serialization-cbor:$kotlinx_serializer_version"
 
         // Settings
-        const val MultiplatformSettings = "com.russhwolf:multiplatform-settings:$settings_version"
+        const val MultiplatformSettings = "com.russhwolf:multiplatform-settings-no-arg:$settings_version"
     }
 
     object Android {
@@ -37,6 +38,9 @@ object Dependencies {
         const val CoreKTX = "androidx.core:core-ktx:$core_ktx_version"
         const val AppCompat = "androidx.appcompat:appcompat:$app_compat_version"
         const val ConstraintLayout = "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+
+        // Material
+        const val Material = "com.google.android.material:material:$material_version"
     }
 
     object Desktop {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Look Test App</string>
+
+    <string name="no_internet_connection">Отсутствует подключение к интернету</string>
+    <string name="retry">Повторить</string>
+    <string name="enter_this_code_on_site">Введите этот код на сайте\nhttps://development.lookit.hk/devices</string>
+    <string name="profile_title">Имя экрана: %s</string>
+
+    <!-- Content description -->
+    <string name="logo_description">Логотип Look</string>
+</resources>

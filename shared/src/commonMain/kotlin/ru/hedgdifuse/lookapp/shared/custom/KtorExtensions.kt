@@ -1,4 +1,4 @@
-package shared.custom
+package ru.hedgdifuse.lookapp.shared.custom
 
 import ru.hedgdifuse.lookapp.shared.Constants.API.START_URL
 
