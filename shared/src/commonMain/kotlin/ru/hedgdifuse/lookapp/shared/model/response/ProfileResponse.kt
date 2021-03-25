@@ -1,4 +1,4 @@
-package ru.hedgdifuse.lookapp.shared.model.payload
+package ru.hedgdifuse.lookapp.shared.model.response
 
 import kotlinx.serialization.Serializable
 

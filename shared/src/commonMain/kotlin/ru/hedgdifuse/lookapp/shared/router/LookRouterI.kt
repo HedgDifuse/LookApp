@@ -1,7 +1,7 @@
 package ru.hedgdifuse.lookapp.shared.router
 
 import io.ktor.client.statement.*
-import ru.hedgdifuse.lookapp.shared.model.payload.ProfileResponse
+import ru.hedgdifuse.lookapp.shared.model.response.ProfileResponse
 import ru.hedgdifuse.lookapp.shared.model.response.BaseResponse
 
 /**

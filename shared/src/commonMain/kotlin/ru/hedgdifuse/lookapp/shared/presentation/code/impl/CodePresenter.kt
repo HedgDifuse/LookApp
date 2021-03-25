@@ -3,11 +3,17 @@ package ru.hedgdifuse.lookapp.shared.presentation.code.impl
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.set
 import io.ktor.client.features.*
+import io.ktor.utils.io.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.serializer
 import org.koin.core.component.inject
 import ru.hedgdifuse.lookapp.shared.base.pingable.PingablePresenter
 import ru.hedgdifuse.lookapp.shared.base.render.RenderState
+import ru.hedgdifuse.lookapp.shared.model.response.BaseResponse
+import ru.hedgdifuse.lookapp.shared.model.response.CodeResponse
 import ru.hedgdifuse.lookapp.shared.presentation.code.CodePresenterI
 import ru.hedgdifuse.lookapp.shared.presentation.code.CodeViewI
 import ru.hedgdifuse.lookapp.shared.tools.RandomCodeGenerator
@@ -55,6 +61,16 @@ class CodePresenter(view: CodeViewI) : PingablePresenter<CodeViewI>(view), CodeP
 
                     // If screen is added
                     if(result.result?.status?.value == 200) {
+
+                        // Get _id from result
+                        val codeResponse = result.result.content.readUTF8Line()
+                        codeResponse?.let {
+                            val content = Json.decodeFromString<BaseResponse<CodeResponse>>(it)
+                            content.result?.id?.let { id ->
+                                settings["_id"] = id
+                            }
+                        }
+
                         val cookies = result.result.headers["Set-Cookie"]
                             ?.split(Regex("; *"))
                             ?.map { Regex(COOKIES_PATTERN).find(it) }

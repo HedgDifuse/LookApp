@@ -8,7 +8,8 @@ import ru.hedgdifuse.lookapp.shared.model.payload.CodePayload
 import ru.hedgdifuse.lookapp.shared.model.response.BaseResponse
 import ru.hedgdifuse.lookapp.shared.router.LookRouterI
 import ru.hedgdifuse.lookapp.shared.custom.withStartUrl
-import ru.hedgdifuse.lookapp.shared.model.payload.ProfileResponse
+import ru.hedgdifuse.lookapp.shared.model.response.CodeResponse
+import ru.hedgdifuse.lookapp.shared.model.response.ProfileResponse
 
 /**
  * [LookRouter] - implementation of [LookRouterI]
